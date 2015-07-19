@@ -1,0 +1,10 @@
+*.pyo
+*.pyc
+*.pot
+*.log
+*.CRUD_Django/settings.py
+*.CRUD_Django/wsgi.py
+media
+media/*
+*.idea/
+*.__pycache__/*
