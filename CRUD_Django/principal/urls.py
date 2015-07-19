@@ -1,10 +1,8 @@
 from django.conf.urls import include, url
 from django.contrib import admin
+from principal.views import Inicio
 
 urlpatterns = [
-    # Examples:
-    # url(r'^$', 'CRUD_Django.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
 
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^inicio/', Inicio.as_view(), name='inicio'),
 ]

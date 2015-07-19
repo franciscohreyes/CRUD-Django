@@ -6,5 +6,5 @@
 *.CRUD_Django/wsgi.py
 media
 media/*
-.idea/*
+*.idea/
 *.__pycache__/*
