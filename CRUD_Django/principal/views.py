@@ -1,8 +1,10 @@
 # encoding:utf-8
+from django.contrib import messages
 from django.core.urlresolvers import reverse_lazy
+from django.db import transaction
 from django.db.models import Q
 from django.shortcuts import render
-from django.views.generic import TemplateView, CreateView, ListView, DetailView, UpdateView, DeleteView
+from django.views.generic import TemplateView, CreateView, ListView, DetailView, UpdateView
 from principal.forms import CrearContactoForm, EditarContactoForm, EliminarContactoForm
 from principal.models import Agenda
 
@@ -55,8 +57,10 @@ class AgregarContactoView(CreateView):
 	success_url = reverse_lazy("lista_contactos_nuevos")
 	template_name = "agenda_form.html"
 
+	@transaction.atomic()
 	def form_valid(self, form):
 		form.instance.cat_estatus_id = 1
+		messages.success(self.request, "Se agrego correctamente un contacto")
 		return super(AgregarContactoView, self).form_valid(form)
 
 	def get_context_data(self, **kwargs):
