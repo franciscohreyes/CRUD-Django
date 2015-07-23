@@ -43,3 +43,28 @@
         </div>
     </div>
 {% endblock %}
+{% block extraJS %}
+	<script>
+	$(document).ready(function(){
+		$("#Add-contacto").validate({
+			  rules: {
+			    nombre: "required",
+			    correo: {
+			      required: true,
+			      email: true
+			    }
+			  },
+			  messages: {
+			    nombre: "Please specify your name",
+			    correo: {
+			      required: "We need your email address to contact you",
+			      email: "Your email address must be in the format of name@domain.com"
+			    }
+			  },
+			submitHandler: function(form){
+				 form.submit();
+			}
+		});
+	});
+	</script>
+{% endblock %}

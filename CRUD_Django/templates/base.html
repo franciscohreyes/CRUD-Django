@@ -85,6 +85,21 @@
         <!-- Matter -->
         <div class="matter">
             <div class="container">
+                {% for message in messages %}
+                    {% if 'error' in message.tags %}
+                        <div class="alert alert-danger">
+                            <a class="close" href="#" data-dismiss="alert">×</a>
+                            <strong>ALERTA!</strong>
+                                <span>{{ message }}</span>
+                        </div>
+                    {% endif %}
+                    {% if 'success' in message.tags %}
+                        <div class="alert alert-success">
+                            <a class="close" href="#" data-dismiss="alert">×</a>
+                                <span>{{ message }}</span>
+                        </div>
+                    {% endif %}
+                {% endfor %}
                 <div class="row">
                     {% block grafica_general %}
                     <div class="col-md-12 portlets">
@@ -206,6 +221,7 @@
 
 {% block DataTables %}
     <script src="{% static "js/datatables/js/jquery.dataTables.js" %}"></script>
+    <script src="{% static "js/validate/jquery.validate.min.js" %}"></script>
 {% endblock %}
 
 {% block Daterangepicker %}

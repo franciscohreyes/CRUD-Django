@@ -36,13 +36,12 @@ class AgregarEstatusView(CreateView):
 	template_name = "cat_estatus_form.html"
 
 	def form_valid(self, form):
-		# form.instance.cat_estatus_id = 1
 		datos = form.cleaned_data["descripcion"]
 		estatus = Cat_estatus.objects.filter(descripcion=datos)
-		if estatus.exists():
-			# messages.error(request, "Ya existe un estatus con ese nombre")
-			print("Ya existe un estatus con ese nombre")
+		if estatus:
+			messages.error(self.request, "Ya existe un estatus con el nombre de: " + datos)
 			return HttpResponseRedirect(reverse_lazy('agregar_nuevo_estatus'))
+		messages.success(self.request, "Se agrego un estatus correctamente")
 		return super(AgregarEstatusView, self).form_valid(form)
 
 	def get_context_data(self, **kwargs):
