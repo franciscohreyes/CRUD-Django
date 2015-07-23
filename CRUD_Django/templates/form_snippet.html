@@ -1,0 +1,33 @@
+{% for field in form %}
+    {% if not field.is_hidden %}
+{#        <div class="pull-left"></div>#}
+        <div class="form-group">
+            <label class="control-label col-lg-2" for="{{ field.auto_id }}">
+                {{ field.label }}
+                {% if field.field.required %}
+                <b style="color: #d9534f;">*</b>
+                {% endif %}
+            </label>
+            <div class="col-lg-10">
+                {{ field }}
+            </div>
+        </div>
+
+        {% for error in field.errors %}
+{#            <span style="color: #d9534f;">{{ error }}</span>#}
+            <span class="label label-danger">{{ error }}</span>
+        {% endfor %}
+
+{#        <div class="form-group">#}
+{#            #}
+{#        </div>#}
+
+        <div class="help_text">
+            <span class="muted">
+                {{ field.help_text }}
+            </span>
+        </div>
+        {% else %}
+            {{ field }}
+    {% endif %}
+{% endfor %}

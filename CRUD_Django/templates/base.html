@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <!-- Title and other stuffs -->
-  <title>Inicio | Agenda</title>
+  <title>Inicio | {% block title %}Agenda{% endblock %}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <meta name="keywords" content="">
@@ -31,6 +31,7 @@
   <link rel="stylesheet" href="{% static "style/daterangepicker-bs3.css" %}" />
   <!-- Bootstrap toggle -->
   <link rel="stylesheet" href="{% static "style/bootstrap-switch.css" %}">
+  <link rel="stylesheet" href="{% static "js/datatables/css/dataTables.bootstrap.css" %}">
   <!-- Main stylesheet -->
   <link href="{% static "style/style.css" %}" rel="stylesheet">
   <!-- Widgets stylesheet -->
@@ -49,164 +50,12 @@
 </head>
 
 <body>
-<header>
-    <div class="navbar navbar-fixed-top bs-docs-nav" role="banner">
-        <div class="container">
-            <!-- Menu button for smallar screens -->
-            <div class="navbar-header">
-                <button class="navbar-toggle btn-navbar" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse"><span>Menu</span></button>
-                <a href="#" class="pull-left menubutton hidden-xs"><i class="fa fa-bars"></i></a>
-                <!-- Site name for smallar screens -->
-                <a href="index.html" class="navbar-brand">Agenda<span class="bold">Tech</span></a>
-            </div>
-
-            <!-- Navigation starts -->
-            <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-                <!-- Links -->
-                <ul class="nav navbar-nav pull-right">
-                    <li class="dropdown pull-right user-data">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <img src="{% static "img/user1.png" %}"> John <span class="bold">Doe</span> <b class="caret"></b>
-                        </a>
-                        <!-- Dropdown menu -->
-                        <ul class="dropdown-menu">
-                            <li><a href="#"><i class="fa fa-user"></i> Perfil</a></li>
-                            <li><a href="#"><i class="fa fa-cogs"></i> Configuración</a></li>
-                            <li><a href="login.html"><i class="fa fa-key"></i> Salir</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown dropdown-big leftonmobile">
-                        <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-                            <i class="fa fa-comments"></i><span class="label label-info">6</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="dropdown-header padless">
-                                <!-- Heading - h5 -->
-                                <h5><i class="fa fa-comments"></i> Chats</h5>
-                                <!-- Use hr tag to add border -->
-                            </li>
-                            <li>
-                                <hr/>
-                                <!-- List item heading h6 -->
-                                <h6><a href="#">Hola :)</a> <span class="label label-warning pull-right">10:42</span></h6>
-                                <div class="clearfix"></div>
-                                <hr/>
-                            </li>
-                            <li>
-                                <h6><a href="#">Como estas?</a> <span class="label label-warning pull-right">20:42</span></h6>
-                                <div class="clearfix"></div>
-                                <hr/>
-                            </li>
-                            <li>
-                                <h6><a href="#">Que estas haciendo?</a> <span class="label label-warning pull-right">14:42</span></h6>
-                                <div class="clearfix"></div>
-                                <hr/>
-                            </li>
-                            <li>
-                                <div class="drop-foot">
-                                    <a href="#">Ver todos</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <!-- Message button with number of latest messages count-->
-                    <li class="dropdown dropdown-big messages-dd leftonmobile">
-                        <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-                            <i class="fa fa-envelope-o"></i> <span class="label label-primary">3</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="dropdown-header padless">
-                                <!-- Heading - h5 -->
-                                <h5><i class="fa fa-envelope-alt"></i> Mensajes</h5>
-                                <!-- Use hr tag to add border -->
-                            </li>
-                            <li>
-                                <hr/><!-- List item heading h6 -->
-                                <h6><a href="#">Hola como estas?</a></h6>
-                                <!-- List item para -->
-                                <p>Quisque eu consectetur erat eget  semper...</p>
-                                <hr/>
-                            </li>
-                            <li>
-                                <h6><a href="#">Hoy es un día hermoso?</a></h6>
-                                <p>Quisque eu consectetur erat eget  semper...</p>
-                                <hr/>
-                            </li>
-                            <li>
-                                <div class="drop-foot">
-                                    <a href="#">Ver todos</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- Members button with number of latest members count -->
-                    <li class="dropdown dropdown-big">
-                        <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-                            <i class="fa fa-user"></i> <span class="label label-success">7</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="dropdown-header padless">
-                                <!-- Heading - h5 -->
-                                <h5><i class="fa fa-user"></i> Usuarios</h5>
-                                <!-- Use hr tag to add border -->
-                            </li>
-                            <li>
-                                <hr/>
-                                <!-- List item heading h6-->
-                                <h6><a href="#">John Doe</a> <span class="label label-warning pull-right">Free</span></h6>
-                                <div class="clearfix"></div>
-                                <hr/>
-                            </li>
-                            <li>
-                                <h6><a href="#">Iron Man</a> <span class="label label-important pull-right">Premium</span></h6>
-                                <div class="clearfix"></div>
-                                <hr/>
-                            </li>
-                            <li>
-                                <h6><a href="#">Salamander</a> <span class="label label-warning pull-right">Free</span></h6>
-                                <div class="clearfix"></div>
-                                <hr/>
-                            <li>
-                            <li>
-                                <div class="drop-foot">
-                                    <a href="#">Ver todos</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-</header>
+{% include "header.html" %}
 <!-- Main content starts -->
 
 <div class="content">
     <!-- Sidebar -->
-    <div class="sidebar">
-        <div class="sidebar-dropdown"><a href="#">Navigation</a></div>
-        <!-- Search form -->
-        <form class="navbar-form" role="search">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
-                <button class="btn search-button" type="submit"><i class="fa fa-search"></i></button>
-            </div>
-        </form>
-        <!--- Sidebar navigation -->
-        <!-- If the main navigation has sub navigation, then add the class "has_sub" to "li" of main navigation. -->
-        <ul id="nav">
-            <!-- Main menu with font awesome icon -->
-            <li><a href="index.html" class="open"><i class="fa fa-home"></i> <span>Escritorio</span></a></li>
-            <li class="has_sub"><a href="#"><i class="fa fa-list-alt"></i> <span>Agenda</span> <span class="pull-right"><i class="fa fa-chevron-left"></i></span></a>
-                <ul>
-                    <li><a href="#">Widgets #1</a></li>
-                    <li><a href="#">Widgets #2</a></li>
-                    <li><a href="#">Widgets #3</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
+    {% include "sidebar.html" %}
     <!-- Sidebar ends -->
 
     <!-- Main bar -->
@@ -223,10 +72,12 @@
             <div class="clearfix"></div>
             <!-- Breadcrumb -->
             <div class="bread-crumb">
-                <a href="index.html"><i class="fa fa-home"></i> Inicio</a>
-                <!-- Divider -->
-                <span class="divider">/</span>
-                <a href="#" class="bread-current">Escritorio</a>
+                {% block breadcrumb %}
+                    <a href="{% url "index" %}"><i class="fa fa-home"></i> Inicio</a>
+                    <!-- Divider -->
+                    <span class="divider">/</span>
+                    <a href="#" class="bread-current">Escritorio</a>
+                {% endblock %}
             </div>
             <div class="clearfix"></div>
         </div>
@@ -235,134 +86,72 @@
         <div class="matter">
             <div class="container">
                 <div class="row">
-
+                    {% block grafica_general %}
+                    <div class="col-md-12 portlets">
+                        <!-- Widget -->
+                        <div class="widget">
+                            <div class="widget-head">
+                                <div class="pull-left"><i class="fa fa-bar"></i>Graficas Generales</div>
+                                <div class="widget-icons pull-right">
+                                    <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+                                    <a href="#" class="wsettings"><i class="fa fa-wrench"></i></a>
+                                    <a href="#" class="wclose"><i class="fa fa-times"></i></a>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <!-- Widget content -->
+                            <div class="widget-content">
+                                <div id="graph2"></div>
+                            </div>
+                        <!-- Widget ends -->
+                        </div>
+                        <!-- Widget -->
+                        <div class="widget">
+                            <!-- Widget content -->
+                            <div class="widget-content">
+                                <div class="padd">
+                                    <div data-toggle="buttons" class="btn-group">
+                                        <label class="btn btn-default">
+                                            Imprimir
+                                        </label>
+                                        <label class="btn btn-default">
+                                            Exportar
+                                        </label>
+                                        <label class="btn btn-default">
+                                            E-mail
+                                        </label>
+                                    </div>
+                                    <div class="btn-group pull-right">
+                                        <button class="btn dropdown-toggle" data-toggle="dropdown">
+                                            <i class="fa fa-cog"></i> Config.
+                                            <span class="fa fa-caret-down fa fa-on-right"></span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a href="#">Acciones</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Otra acción</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Imprimir</a>
+                                            </li>
+                                            <li class="divider"></li>
+                                            <li>
+                                                <a href="#">Exportar</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        <!-- Widget ends -->
+                        </div>
+                    </div>
+                    {% endblock %}
                 </div>
-                <!-- Dashboard Graph starts -->
                 <div class="row">
-                  <div class="col-md-8 portlets">
-
-                    <!-- Widget -->
-                    <div class="widget white headless footless">
-                      <!-- Widget head -->
-                      <div class="widget-head">
-                        <div class="pull-left">Dashboard Chart</div>
-                        <div class="widget-icons pull-right">
-                          <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
-                          <a href="#" class="wsettings"><i class="fa fa-wrench"></i></a>
-                          <a href="#" class="wclose"><i class="fa fa-times"></i></a>
-                        </div>
-                        <div class="clearfix"></div>
-                      </div>
-
-                      <!-- Widget content -->
-                      <div class="widget-content">
-                        <div class="padd">
-                            <div class="btn-group">
-                            <button class="btn btn-sm dropdown-toggle" data-toggle="dropdown">
-      												<i class="fa fa-th-large"></i>
-      												<span class="fa fa-caret-down fa fa-on-right"></span>
-      											</button>
-                            <ul class="dropdown-menu">
-      												<li>
-      													<a href="#">Action</a>
-      												</li>
-
-      												<li>
-      													<a href="#">Another action</a>
-      												</li>
-
-      												<li>
-      													<a href="#">Something else here</a>
-      												</li>
-
-      												<li class="divider"></li>
-
-      												<li>
-      													<a href="#">Separated link</a>
-      												</li>
-      											</ul>
-                            </div>
-                            <div class="pull-right">
-                              <div data-toggle="buttons" class="btn-group">
-              								  <label class="btn btn-sm btn-default">
-              								    <input type="radio" id="option1" name="options"> Daily
-              								  </label>
-              								  <label class="btn btn-sm btn-default">
-              								    <input type="radio" id="option2" name="options"> Weekly
-              								  </label>
-              								  <label class="btn btn-sm btn-default active">
-              								    <input type="radio" id="option3" name="options"> Monthly
-              								  </label>
-              								</div>
-                            </div>
-                            <div class="clearfix"></div>
-                          <div id="graph1"></div>
-                        </div>
-                      </div>
-                      <!-- Widget ends -->
-
-                    </div>
-                  </div>
-                  <div class="col-md-4 portlets">
-
-                    <!-- Widget -->
-                    <div class="widget">
-                      <!-- Widget content -->
-                      <div class="widget-content">
-                          <div id="graph2"></div>
-                      </div>
-                      <!-- Widget ends -->
-
-                    </div>
-                    <!-- Widget -->
-                    <div class="widget">
-                      <!-- Widget content -->
-                      <div class="widget-content">
-                          <div class="padd">
-                            <div data-toggle="buttons" class="btn-group">
-              								  <label class="btn btn-default">
-              								     Print
-              								  </label>
-              								  <label class="btn btn-default">
-              								    Export
-              								  </label>
-              								  <label class="btn btn-default">
-              								     E-mail
-              								  </label>
-              								</div>
-
-                              <div class="btn-group pull-right">
-      												<button class="btn dropdown-toggle" data-toggle="dropdown">
-      													<i class="fa fa-cog"></i> Settings
-      													<span class="fa fa-caret-down fa fa-on-right"></span>
-      												</button>
-
-      												<ul class="dropdown-menu">
-      													<li>
-      														<a href="#">Action</a>
-      													</li>
-
-      													<li>
-      														<a href="#">Another action</a>
-      													</li>
-
-      													<li>
-      														<a href="#">Something else here</a>
-      													</li>
-
-      													<li class="divider"></li>
-
-      													<li>
-      														<a href="#">Separated link</a>
-      													</li>
-      												</ul>
-      											</div>
-                          </div>
-                      </div>
-                      <!-- Widget ends -->
-
-                    </div>
-                  </div>
+                    {% block contenedor_form %}
+                    {% endblock %}
                 </div>
             </div>
         </div>
@@ -374,16 +163,7 @@
 <!-- Content ends -->
 
 <!-- Footer starts -->
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <!-- Copyright info -->
-                <p class="copy">Copyright &copy; 2015 | <a href="#">Todos los derechos reservados | AgendaTech</a></p>
-            </div>
-        </div>
-    </div>
-</footer>
+{% include "footer.html" %}
 <!-- Footer ends -->
 
 <!-- Scroll to top -->
@@ -408,10 +188,10 @@
 {% block jQueryFlot %}
 <!-- jQuery Flot -->
 <script src="{% static "js/excanvas.min.js" %}"></script>
-<script src="{% static "js/jquery.flot.js" %}"></script>
-<script src="{% static "js/jquery.flot.resize.js" %}"></script>
-<script src="{% static "js/jquery.flot.pie.js" %}"></script>
-<script src="{% static "js/jquery.flot.stack.js" %}"></script>
+{#<script src="{% static "js/jquery.flot.js" %}"></script>#}
+{#<script src="{% static "js/jquery.flot.resize.js" %}"></script>#}
+{#<script src="{% static "js/jquery.flot.pie.js" %}"></script>#}
+{#<script src="{% static "js/jquery.flot.stack.js" %}"></script>#}
 {% endblock %}
 
 {% block jQueryNotificationNoty %}
@@ -422,6 +202,10 @@
 <script src="{% static "js/layouts/topRight.js" %}"></script> <!-- jQuery Notify -->
 <script src="{% static "js/layouts/top.js" %}"></script> <!-- jQuery Notify -->
 <!-- jQuery Notification ends -->
+{% endblock %}
+
+{% block DataTables %}
+    <script src="{% static "js/datatables/js/jquery.dataTables.js" %}"></script>
 {% endblock %}
 
 {% block Daterangepicker %}
@@ -450,6 +234,31 @@
         });
         $('#reportrange span').html(moment().format('dddd D MMMM, YYYY'));
     </script>
+
+    <script>
+    // Second Chart
+    var graph2 = function(){
+      $("#graph2").html("");
+      Morris.Donut({
+        element: 'graph2',
+        data: [
+          {label: "Internet Explorer", value: 12},
+          {label: "Google Chrome", value: 30},
+          {label: "Mozilla Firefox", value: 20},
+          {label: "Other", value: 17}
+        ],
+        hideHover: 'auto',
+        colors: ["#C5CED6", "#59646E","#384B5E", "#999"]
+        //colors: ["#4BB5C1", "#96CA2D", "#7FC6BC","#EDF7F2"]
+      });
+    }
+    // Init Second Chart
+    graph2();
+    // Resize Second Chart on page resize
+    $(window).resize(debounce(graph2,200));
+    </script>
+{% endblock %}
+{% block extraJS %}
 {% endblock %}
 </body>
 </html>

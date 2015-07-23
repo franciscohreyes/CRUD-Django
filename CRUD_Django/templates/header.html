@@ -1,0 +1,17 @@
+{% load staticfiles %}
+<header>
+    <div class="navbar navbar-fixed-top bs-docs-nav" role="banner">
+        <div class="container">
+            <!-- Menu button for smallar screens -->
+            <div class="navbar-header">
+                <button class="navbar-toggle btn-navbar" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse"><span>Menu</span></button>
+                <a href="#" class="pull-left menubutton hidden-xs"><i class="fa fa-bars"></i></a>
+                <!-- Site name for smallar screens -->
+                <a href="index.html" class="navbar-brand">Agenda<span class="bold">Tech</span></a>
+            </div>
+
+            <!-- Navigation starts -->
+            {% include "navigation.html" %}
+        </div>
+    </div>
+</header>

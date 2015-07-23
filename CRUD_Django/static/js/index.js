@@ -101,26 +101,26 @@ $(function () {
     // Resize First Chart on page resize
     $(window).resize(debounce(graph1,200));
     
-    // Second Chart
-    var graph2 = function(){
-      $("#graph2").html("");
-      Morris.Donut({
-        element: 'graph2',
-        data: [
-          {label: "Internet Explorer", value: 12},
-          {label: "Google Chrome", value: 30},
-          {label: "Mozilla Firefox", value: 20},
-          {label: "Other", value: 17}
-        ],
-        hideHover: 'auto',
-        colors: ["#C5CED6", "#59646E","#384B5E", "#999"]
-        //colors: ["#4BB5C1", "#96CA2D", "#7FC6BC","#EDF7F2"]
-      });
-    }
-    // Init Second Chart
-    graph2();
-    // Resize Second Chart on page resize
-    $(window).resize(debounce(graph2,200));
+//    // Second Chart
+//    var graph2 = function(){
+//      $("#graph2").html("");
+//      Morris.Donut({
+//        element: 'graph2',
+//        data: [
+//          {label: "Internet Explorer", value: 12},
+//          {label: "Google Chrome", value: 30},
+//          {label: "Mozilla Firefox", value: 20},
+//          {label: "Other", value: 17}
+//        ],
+//        hideHover: 'auto',
+//        colors: ["#C5CED6", "#59646E","#384B5E", "#999"]
+//        //colors: ["#4BB5C1", "#96CA2D", "#7FC6BC","#EDF7F2"]
+//      });
+//    }
+//    // Init Second Chart
+//    graph2();
+//    // Resize Second Chart on page resize
+//    $(window).resize(debounce(graph2,200));
     
     // Third Chart
     var graph3 = function(){
