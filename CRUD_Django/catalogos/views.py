@@ -25,7 +25,7 @@ class ListaEstatusView(ListView):
 
 	def get_context_data(self, **kwargs):
 		context = super(ListaEstatusView, self).get_context_data(**kwargs)
-		context['estatus'] = 'Active'
+		context['estatus'] = 'open'
 		return context
 
 
@@ -46,7 +46,7 @@ class AgregarEstatusView(CreateView):
 
 	def get_context_data(self, **kwargs):
 		context = super(AgregarEstatusView, self).get_context_data(**kwargs)
-		context['estatus'] = 'Active'
+		context['estatus'] = 'open'
 		return context
 
 
@@ -56,7 +56,7 @@ class DetalleEstatusView(DetailView):
 
 	def get_context_data(self, **kwargs):
 		context = super(DetalleEstatusView, self).get_context_data(**kwargs)
-		context['estatus'] = 'Active'
+		context['estatus'] = 'open'
 		return context
 
 
@@ -67,9 +67,10 @@ class EditarEstatusView(UpdateView):
 	template_name = "cat_estatus_update_form.html"
 
 	def form_valid(self, form):
+		messages.success(self.request, "Se actualizó el estatus correctamente")
 		return super(EditarEstatusView, self).form_valid(form)
 
 	def get_context_data(self, **kwargs):
 		context = super(EditarEstatusView, self).get_context_data(**kwargs)
-		context['estatus'] = 'Active'
+		context['estatus'] = 'open'
 		return context
