@@ -4,14 +4,18 @@
     <a href="{% url "index" %}"><i class="fa fa-home"></i> Inicio</a>
     <!-- Divider -->
     <span class="divider">/</span>
-    <a href="#" class="bread-current">Editar Contacto</a>
+    <a href="#" class="bread-current">{% if activar %} Activar Contacto {% else %} Editar
+        Contacto {% endif %}</a>
 {% endblock %}
 
 {% block contenedor_form %}
     <div class="col-md-12 portlets">
         <div class="widget">
             <div class="widget-head">
-                <div class="pull-left"><i class="fa fa-pencil"></i> Editar contacto</div>
+                <div class="pull-left">{% if activar %} <i class="fa fa-check-circle"></i> Activar Contacto
+                {% else %} <i class="fa fa-pencil"></i> Editar
+                    Contacto
+                    {% endif %}</div>
                 <div class="widget-icons pull-right">
                     <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
                     <a href="#" class="wclose"><i class="fa fa-times"></i></a>
@@ -31,8 +35,12 @@
                             <div class="form-group">
                                 <div class="col-lg-offset-2 col-lg-9">
                                     <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-                                    <a href="{% url "lista_contactos_nuevos" %}" class="btn btn-danger">Cancelar</a>
-                                    </div>
+                                    {% if activar %}
+                                        <a href="{% url "lista_contactos_inactivos" %}" class="btn btn-danger">Cancelar</a>
+                                        {% else %}
+                                            <a href="{% url "lista_contactos_nuevos" %}" class="btn btn-danger">Cancelar</a>
+                                    {% endif %}
+                                </div>
                             </div>
                         </form>
                     </div>

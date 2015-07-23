@@ -13,7 +13,7 @@
         <ul id="nav">
             <!-- Main menu with font awesome icon -->
             <li><a href="{% url "index" %}" class="open"><i class="fa fa-home"></i> <span>Escritorio</span></a></li>
-            <li class="has_sub"><a href="#"><i class="fa fa-list-alt"></i> <span>Agenda</span> <span class="pull-right"><i class="fa fa-chevron-left"></i></span></a>
+            <li class="has_sub"><a href="#" class="{{ contacto }}"><i class="fa fa-list-alt"></i> <span>Agenda</span> <span class="pull-right"><i class="fa fa-chevron-left"></i></span></a>
                 <ul>
                     <li><a href="{% url "lista_contactos_nuevos" %}"><i class="fa fa-list-alt"></i>Lista de
                         contactos</a></li>
@@ -21,7 +21,8 @@
                     <li><a href="{% url "lista_contactos_inactivos" %}"><i class="fa fa-times-circle"></i>Contactos inactivos</a></li>
                 </ul>
             </li>
-            <li class="has_sub"><a href="#"><i class="fa fa-list-alt"></i> <span>Catalogos</span> <span
+            <li class="has_sub"><a href="#" class="{{ estatus }}"><i class="fa fa-list-alt"></i> <span>Catalogos</span>
+                <span
                     class="pull-right"><i class="fa fa-chevron-left"></i></span></a>
                 <ul>
                     <li><a href="{% url "lista_estatus" %}"><i class="fa fa-list-alt"></i>Lista de estatus</a></li>

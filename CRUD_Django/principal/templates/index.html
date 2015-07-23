@@ -1,2 +1,71 @@
 {% extends "base.html" %}
-{% block title %}Agregar un contacto{% endblock %}
+{% block title %}Página Principal{% endblock %}
+{% block breadcrumb %}
+    <a href="{% url "index" %}"><i class="fa fa-home"></i> Inicio</a>
+    <!-- Divider -->
+    <span class="divider">/</span>
+    <a href="#" class="bread-current">Gráficas Generales</a>
+{% endblock %}
+
+{% block grafica_general %}
+                    <div class="col-md-12 portlets">
+                        <!-- Widget -->
+                        <div class="widget">
+                            <div class="widget-head">
+                                <div class="pull-left"><i class="fa fa-bar-chart-o"></i> Gráficas Generales</div>
+                                <div class="widget-icons pull-right">
+                                    <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+                                    <a href="#" class="wsettings"><i class="fa fa-wrench"></i></a>
+                                    <a href="#" class="wclose"><i class="fa fa-times"></i></a>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <!-- Widget content -->
+                            <div class="widget-content">
+                                <div id="graph2"></div>
+                            </div>
+                        <!-- Widget ends -->
+                        </div>
+                        <!-- Widget -->
+                        <div class="widget">
+                            <!-- Widget content -->
+                            <div class="widget-content">
+                                <div class="padd">
+                                    <div data-toggle="buttons" class="btn-group">
+                                        <label class="btn btn-default">
+                                            Imprimir
+                                        </label>
+                                        <label class="btn btn-default">
+                                            Exportar
+                                        </label>
+                                        <label class="btn btn-default">
+                                            E-mail
+                                        </label>
+                                    </div>
+                                    <div class="btn-group pull-right">
+                                        <button class="btn dropdown-toggle" data-toggle="dropdown">
+                                            <i class="fa fa-cog"></i> Config.
+                                            <span class="fa fa-caret-down fa fa-on-right"></span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a href="#">Acciones</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Otra acción</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Imprimir</a>
+                                            </li>
+                                            <li class="divider"></li>
+                                            <li>
+                                                <a href="#">Exportar</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        <!-- Widget ends -->
+                        </div>
+                    </div>
+{% endblock %}

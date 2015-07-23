@@ -102,66 +102,6 @@
                 {% endfor %}
                 <div class="row">
                     {% block grafica_general %}
-                    <div class="col-md-12 portlets">
-                        <!-- Widget -->
-                        <div class="widget">
-                            <div class="widget-head">
-                                <div class="pull-left"><i class="fa fa-bar"></i>Graficas Generales</div>
-                                <div class="widget-icons pull-right">
-                                    <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
-                                    <a href="#" class="wsettings"><i class="fa fa-wrench"></i></a>
-                                    <a href="#" class="wclose"><i class="fa fa-times"></i></a>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                            <!-- Widget content -->
-                            <div class="widget-content">
-                                <div id="graph2"></div>
-                            </div>
-                        <!-- Widget ends -->
-                        </div>
-                        <!-- Widget -->
-                        <div class="widget">
-                            <!-- Widget content -->
-                            <div class="widget-content">
-                                <div class="padd">
-                                    <div data-toggle="buttons" class="btn-group">
-                                        <label class="btn btn-default">
-                                            Imprimir
-                                        </label>
-                                        <label class="btn btn-default">
-                                            Exportar
-                                        </label>
-                                        <label class="btn btn-default">
-                                            E-mail
-                                        </label>
-                                    </div>
-                                    <div class="btn-group pull-right">
-                                        <button class="btn dropdown-toggle" data-toggle="dropdown">
-                                            <i class="fa fa-cog"></i> Config.
-                                            <span class="fa fa-caret-down fa fa-on-right"></span>
-                                        </button>
-                                        <ul class="dropdown-menu">
-                                            <li>
-                                                <a href="#">Acciones</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Otra acción</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Imprimir</a>
-                                            </li>
-                                            <li class="divider"></li>
-                                            <li>
-                                                <a href="#">Exportar</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        <!-- Widget ends -->
-                        </div>
-                    </div>
                     {% endblock %}
                 </div>
                 <div class="row">
@@ -258,16 +198,16 @@
       Morris.Donut({
         element: 'graph2',
         data: [
-          {label: "Internet Explorer", value: 12},
-          {label: "Google Chrome", value: 30},
-          {label: "Mozilla Firefox", value: 20},
-          {label: "Other", value: 17}
+          {label: "Contactos Registrados", value: {{ contactos_registrados }} },
+          {label: "Contactos Eliminados", value: {{ contactos_eliminados }} },
+          {label: "Direcciones Registradas", value: {{ direcciones_registradas }} },
+          {label: "Estatus Registrados", value: {{ estatus_registrados }} }
         ],
         hideHover: 'auto',
-        colors: ["#C5CED6", "#59646E","#384B5E", "#999"]
-        //colors: ["#4BB5C1", "#96CA2D", "#7FC6BC","#EDF7F2"]
+        colors: ["#7FC6BC", "#d9534f","#96CA2D", "#999"]
+{#        colors: ["#4BB5C1", "#96CA2D", "#7FC6BC","#EDF7F2"]#}
       });
-    }
+    };
     // Init Second Chart
     graph2();
     // Resize Second Chart on page resize
