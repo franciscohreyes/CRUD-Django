@@ -1,0 +1,21 @@
+{% load staticfiles %}
+        <div class="page-head">
+            <h2 class="pull-left">Escritorio</h2>
+            <div class="pull-right">
+                <div id="reportrange" class="pull-right">
+                    <i class="fa fa-calendar"></i>
+                    <span></span> <b class="caret"></b>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <!-- Breadcrumb -->
+            <div class="bread-crumb">
+                {% block breadcrumb %}
+                <a href="index.html"><i class="fa fa-home"></i> Inicio</a>
+                <!-- Divider -->
+                <span class="divider">/</span>
+                <a href="#" class="bread-current">Escritorio</a>
+                {% endblock %}
+            </div>
+            <div class="clearfix"></div>
+        </div>

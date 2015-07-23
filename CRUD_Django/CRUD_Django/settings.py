@@ -37,7 +37,9 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'south',
     'principal',
+    'catalogos',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -78,7 +80,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'CRUD',
         'USER': 'postgres',
-        'PASSWORD': 'alfredo',
+        'PASSWORD': 'postgres',
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -98,8 +100,36 @@ USE_L10N = True
 
 USE_TZ = True
 
+#login
+from django.core.urlresolvers import reverse_lazy
+# LOGIN_URL = reverse_lazy('login-view')
+LOGIN_REDIRECT_URL = reverse_lazy('index')
+LOGOUT_REDIRECT_URL = reverse_lazy('login')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
+STATIC_ROOT = '/static'
+
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+
+# MEDIA_ROOT = BASE_DIR + "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, 'carga')
+
+MEDIA_URL = '/media/'
+
+TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+)
+
+TEMPLATE_LOADERS = (
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
+#     'django.template.loaders.eggs.Loader',
+)

@@ -1,0 +1,117 @@
+{% load staticfiles %}
+            <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+                <!-- Links -->
+                <ul class="nav navbar-nav pull-right">
+                    <li class="dropdown pull-right user-data">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <img src="{% static "img/user1.png" %}"> John <span class="bold">Doe</span> <b class="caret"></b>
+                        </a>
+                        <!-- Dropdown menu -->
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><i class="fa fa-user"></i> Perfil</a></li>
+                            <li><a href="#"><i class="fa fa-cogs"></i> Configuración</a></li>
+                            <li><a href="login.html"><i class="fa fa-key"></i> Salir</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown dropdown-big leftonmobile">
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                            <i class="fa fa-comments"></i><span class="label label-info">6</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-header padless">
+                                <!-- Heading - h5 -->
+                                <h5><i class="fa fa-comments"></i> Chats</h5>
+                                <!-- Use hr tag to add border -->
+                            </li>
+                            <li>
+                                <hr/>
+                                <!-- List item heading h6 -->
+                                <h6><a href="#">Hola :)</a> <span class="label label-warning pull-right">10:42</span></h6>
+                                <div class="clearfix"></div>
+                                <hr/>
+                            </li>
+                            <li>
+                                <h6><a href="#">Como estas?</a> <span class="label label-warning pull-right">20:42</span></h6>
+                                <div class="clearfix"></div>
+                                <hr/>
+                            </li>
+                            <li>
+                                <h6><a href="#">Que estas haciendo?</a> <span class="label label-warning pull-right">14:42</span></h6>
+                                <div class="clearfix"></div>
+                                <hr/>
+                            </li>
+                            <li>
+                                <div class="drop-foot">
+                                    <a href="#">Ver todos</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- Message button with number of latest messages count-->
+                    <li class="dropdown dropdown-big messages-dd leftonmobile">
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                            <i class="fa fa-envelope-o"></i> <span class="label label-primary">3</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-header padless">
+                                <!-- Heading - h5 -->
+                                <h5><i class="fa fa-envelope-alt"></i> Mensajes</h5>
+                                <!-- Use hr tag to add border -->
+                            </li>
+                            <li>
+                                <hr/><!-- List item heading h6 -->
+                                <h6><a href="#">Hola como estas?</a></h6>
+                                <!-- List item para -->
+                                <p>Quisque eu consectetur erat eget  semper...</p>
+                                <hr/>
+                            </li>
+                            <li>
+                                <h6><a href="#">Hoy es un día hermoso?</a></h6>
+                                <p>Quisque eu consectetur erat eget  semper...</p>
+                                <hr/>
+                            </li>
+                            <li>
+                                <div class="drop-foot">
+                                    <a href="#">Ver todos</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- Members button with number of latest members count -->
+                    <li class="dropdown dropdown-big">
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                            <i class="fa fa-user"></i> <span class="label label-success">7</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-header padless">
+                                <!-- Heading - h5 -->
+                                <h5><i class="fa fa-user"></i> Usuarios</h5>
+                                <!-- Use hr tag to add border -->
+                            </li>
+                            <li>
+                                <hr/>
+                                <!-- List item heading h6-->
+                                <h6><a href="#">John Doe</a> <span class="label label-warning pull-right">Free</span></h6>
+                                <div class="clearfix"></div>
+                                <hr/>
+                            </li>
+                            <li>
+                                <h6><a href="#">Iron Man</a> <span class="label label-important pull-right">Premium</span></h6>
+                                <div class="clearfix"></div>
+                                <hr/>
+                            </li>
+                            <li>
+                                <h6><a href="#">Salamander</a> <span class="label label-warning pull-right">Free</span></h6>
+                                <div class="clearfix"></div>
+                                <hr/>
+                            <li>
+                            <li>
+                                <div class="drop-foot">
+                                    <a href="#">Ver todos</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>

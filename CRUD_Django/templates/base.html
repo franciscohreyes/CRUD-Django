@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <!-- Title and other stuffs -->
+  <title>Inicio | {% block title %}Agenda{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="">
+
+  {% load staticfiles %}
+  {% block Stylesheets %}
+  <!-- Stylesheets -->
+  <link href="{% static "style/bootstrap.css" %}" rel="stylesheet">
+  <!-- Font awesome icon -->
+  <link rel="stylesheet" href="{% static "style/font-awesome.css" %}">
+  <!-- jQuery UI -->
+  <link rel="stylesheet" href="{% static "style/jquery-ui-1.9.2.custom.min.css" %}">
+  <!-- Calendar -->
+  <link rel="stylesheet" href="{% static "style/fullcalendar.css" %}">
+  <!-- prettyPhoto -->
+  <link rel="stylesheet" href="{% static "style/prettyPhoto.css" %}">
+  <!-- Star rating -->
+  <link rel="stylesheet" href="{% static "style/rateit.css" %}">
+  <!-- Date picker -->
+  <link rel="stylesheet" href="{% static "style/bootstrap-datetimepicker.min.css" %}">
+  <!-- CLEditor -->
+  <link rel="stylesheet" href="{% static "style/jquery.cleditor.css" %}">
+  <link rel="stylesheet" href="{% static "style/daterangepicker-bs3.css" %}" />
+  <!-- Bootstrap toggle -->
+  <link rel="stylesheet" href="{% static "style/bootstrap-switch.css" %}">
+  <link rel="stylesheet" href="{% static "js/datatables/css/dataTables.bootstrap.css" %}">
+  <!-- Main stylesheet -->
+  <link href="{% static "style/style.css" %}" rel="stylesheet">
+  <!-- Widgets stylesheet -->
+  <link href="{% static "style/widgets.css" %}" rel="stylesheet">
+    <!-- Gritter Notifications stylesheet -->
+  <link href="{% static "style/jquery.gritter.css" %}" rel="stylesheet">
+  {% endblock %}
+
+  <!-- HTML5 Support for IE -->
+  <!--[if lt IE 9]>
+  <script src="js/html5shim.js"></script>
+  <![endif]-->
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="{% static "img/favicon/favicon.png" %}">
+</head>
+
+<body>
+{% include "header.html" %}
+<!-- Main content starts -->
+
+<div class="content">
+    <!-- Sidebar -->
+    {% include "sidebar.html" %}
+    <!-- Sidebar ends -->
+
+    <!-- Main bar -->
+    <div class="mainbar">
+        <!-- Page heading -->
+        <div class="page-head">
+            <h2 class="pull-left">Escritorio</h2>
+            <div class="pull-right">
+                <div id="reportrange" class="pull-right">
+                    <i class="fa fa-calendar"></i>
+                    <span></span> <b class="caret"></b>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <!-- Breadcrumb -->
+            <div class="bread-crumb">
+                {% block breadcrumb %}
+                    <a href="{% url "index" %}"><i class="fa fa-home"></i> Inicio</a>
+                    <!-- Divider -->
+                    <span class="divider">/</span>
+                    <a href="#" class="bread-current">Escritorio</a>
+                {% endblock %}
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <!-- Page heading ends -->
+        <!-- Matter -->
+        <div class="matter">
+            <div class="container">
+                <div class="row">
+                    {% block grafica_general %}
+                    <div class="col-md-12 portlets">
+                        <!-- Widget -->
+                        <div class="widget">
+                            <div class="widget-head">
+                                <div class="pull-left"><i class="fa fa-bar"></i>Graficas Generales</div>
+                                <div class="widget-icons pull-right">
+                                    <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+                                    <a href="#" class="wsettings"><i class="fa fa-wrench"></i></a>
+                                    <a href="#" class="wclose"><i class="fa fa-times"></i></a>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <!-- Widget content -->
+                            <div class="widget-content">
+                                <div id="graph2"></div>
+                            </div>
+                        <!-- Widget ends -->
+                        </div>
+                        <!-- Widget -->
+                        <div class="widget">
+                            <!-- Widget content -->
+                            <div class="widget-content">
+                                <div class="padd">
+                                    <div data-toggle="buttons" class="btn-group">
+                                        <label class="btn btn-default">
+                                            Imprimir
+                                        </label>
+                                        <label class="btn btn-default">
+                                            Exportar
+                                        </label>
+                                        <label class="btn btn-default">
+                                            E-mail
+                                        </label>
+                                    </div>
+                                    <div class="btn-group pull-right">
+                                        <button class="btn dropdown-toggle" data-toggle="dropdown">
+                                            <i class="fa fa-cog"></i> Config.
+                                            <span class="fa fa-caret-down fa fa-on-right"></span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a href="#">Acciones</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Otra acción</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Imprimir</a>
+                                            </li>
+                                            <li class="divider"></li>
+                                            <li>
+                                                <a href="#">Exportar</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        <!-- Widget ends -->
+                        </div>
+                    </div>
+                    {% endblock %}
+                </div>
+                <div class="row">
+                    {% block contenedor_form %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+        <!-- Matter ends -->
+    </div>
+    <!-- Mainbar ends -->
+    <div class="clearfix"></div>
+</div>
+<!-- Content ends -->
+
+<!-- Footer starts -->
+{% include "footer.html" %}
+<!-- Footer ends -->
+
+<!-- Scroll to top -->
+<span class="totop"><a href="#"><i class="fa fa-chevron-up"></i></a></span>
+
+{% block JS %}
+<!-- JS -->
+<script src="{% static "js/jquery.js" %}"></script> <!-- jQuery -->
+<script src="{% static "js/bootstrap.js" %}"></script> <!-- Bootstrap -->
+<script src="{% static "js/jquery-ui-1.9.2.custom.min.js" %}"></script> <!-- jQuery UI -->
+<script src="{% static "js/fullcalendar.min.js" %}"></script> <!-- Full Google Calendar - Calendar -->
+<script src="{% static "js/jquery.rateit.min.js" %}"></script> <!-- RateIt - Star rating -->
+<script src="{% static "js/jquery.prettyPhoto.js" %}"></script> <!-- prettyPhoto -->
+{% endblock %}
+
+{% block MorrisJS %}
+<!-- Morris JS -->
+<script src="{% static "js/raphael-min.js" %}"></script>
+<script src="{% static "js/morris.min.js" %}"></script>
+{% endblock %}
+
+{% block jQueryFlot %}
+<!-- jQuery Flot -->
+<script src="{% static "js/excanvas.min.js" %}"></script>
+{#<script src="{% static "js/jquery.flot.js" %}"></script>#}
+{#<script src="{% static "js/jquery.flot.resize.js" %}"></script>#}
+{#<script src="{% static "js/jquery.flot.pie.js" %}"></script>#}
+{#<script src="{% static "js/jquery.flot.stack.js" %}"></script>#}
+{% endblock %}
+
+{% block jQueryNotificationNoty %}
+<!-- jQuery Notification - Noty -->
+<script src="{% static "js/jquery.noty.js" %}"></script> <!-- jQuery Notify -->
+<script src="{% static "js/themes/default.js" %}"></script> <!-- jQuery Notify -->
+<script src="{% static "js/layouts/bottom.js" %}"></script> <!-- jQuery Notify -->
+<script src="{% static "js/layouts/topRight.js" %}"></script> <!-- jQuery Notify -->
+<script src="{% static "js/layouts/top.js" %}"></script> <!-- jQuery Notify -->
+<!-- jQuery Notification ends -->
+{% endblock %}
+
+{% block DataTables %}
+    <script src="{% static "js/datatables/js/jquery.dataTables.js" %}"></script>
+{% endblock %}
+
+{% block Daterangepicker %}
+<!-- Daterangepicker -->
+<script src="{% static "js/moment.min.js" %}"></script>
+<script src="{% static "js/daterangepicker.js" %}"></script>
+<script src="{% static "js/sparklines.js" %}"></script> <!-- Sparklines -->
+<script src="{% static "js/jquery.gritter.min.js" %}"></script> <!-- jQuery Gritter -->
+<script src="{% static "js/jquery.cleditor.min.js" %}"></script> <!-- CLEditor -->
+<script src="{% static "js/bootstrap-datetimepicker.min.js" %}"></script> <!-- Date picker -->
+<script src="{% static "js/jquery.slimscroll.min.js" %}"></script> <!-- jQuery SlimScroll -->
+<script src="{% static "js/bootstrap-switch.min.js" %}"></script> <!-- Bootstrap Toggle -->
+<script src="{% static "js/jquery.maskedinput.min.js" %}"></script> <!-- jQuery Masked Input -->
+<script src="{% static "js/dropzone.js" %}"></script> <!-- jQuery Dropzone -->
+<script src="{% static "js/filter.js" %}"></script> <!-- Filter for support page -->
+<script src="{% static "js/custom.js" %}"></script> <!-- Custom codes -->
+<script src="{% static "js/charts.js" %}"></script> <!-- Charts & Graphs -->
+<script src="{% static "js/index.js" %}"></script> <!-- Index Javascripts -->
+{% endblock %}
+
+{% block scriptJS %}
+    <script>
+        moment.lang("es", {
+            months: 'Enero_Febrero_Marzo_Abril_Mayo_Junio_Julio_Agosto_Septiembre_Octubre_Noviembre_Diciembre'.split('_'),
+            weekdays: 'Domingo_Lunes_Martes_Miercoles_Jueves_Viernes_Sabado'.split('_')
+        });
+        $('#reportrange span').html(moment().format('dddd D MMMM, YYYY'));
+    </script>
+
+    <script>
+    // Second Chart
+    var graph2 = function(){
+      $("#graph2").html("");
+      Morris.Donut({
+        element: 'graph2',
+        data: [
+          {label: "Internet Explorer", value: 12},
+          {label: "Google Chrome", value: 30},
+          {label: "Mozilla Firefox", value: 20},
+          {label: "Other", value: 17}
+        ],
+        hideHover: 'auto',
+        colors: ["#C5CED6", "#59646E","#384B5E", "#999"]
+        //colors: ["#4BB5C1", "#96CA2D", "#7FC6BC","#EDF7F2"]
+      });
+    }
+    // Init Second Chart
+    graph2();
+    // Resize Second Chart on page resize
+    $(window).resize(debounce(graph2,200));
+    </script>
+{% endblock %}
+{% block extraJS %}
+{% endblock %}
+</body>
+</html>
